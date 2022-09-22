@@ -1,6 +1,7 @@
 import React from "react";
 
 import { api } from "../utils/api";
+import Card from "./Card";
 
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -13,6 +14,10 @@ function Main({
   onCardDelete,
   cards,
   onCardLike,
+  handleCardClick,
+  handleCardLike,
+  handleCardDelete,
+  handleTrashBinClick,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -47,8 +52,22 @@ function Main({
           onClick={onAddPlaceClick}
         ></button>
       </section>
+      <section className="photos">
+        {cards.map((card) => (
+          <Card
+            {...card}
+            key={card._id}
+            onCardClick={handleCardClick}
+            // onTrashBinClick={handleTrashBinClick}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+            onTrashBinClick={handleTrashBinClick}
+          />
+        ))}
+        ;
+      </section>
 
-      {/* <section className="photos">
+      {/* /* <section className="photos">
         {cards.map((card) => {
           return (
             <Card
