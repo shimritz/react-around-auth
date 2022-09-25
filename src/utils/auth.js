@@ -1,6 +1,6 @@
 class Auth {
   constructor() {
-    this.baseUrl = "https://api.nomoreparties.com";
+    this.baseUrl = "https://register.nomoreparties.co";
   }
 
   signup(email, password) {
@@ -31,6 +31,7 @@ class Auth {
       body: JSON.stringify({ email, password }),
     })
       .then((response) => {
+        console.log(response);
         if (response.ok) {
           return response.json();
         }
@@ -52,8 +53,14 @@ class Auth {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => data);
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then((data) => {
+        return data;
+      });
   }
 }
 

@@ -1,5 +1,4 @@
 @import url("./normalize.css");
-/* @import url("../fonts/fonts.css"); */
 @import url("./blocks/photos.css");
 @import url("./blocks/page.css");
 @import url("./blocks/header.css");
@@ -10,3 +9,4 @@
 @import url("./blocks/form.css");
 @import url("./blocks/login.css");
 @import url("./blocks/register.css");
+@import url("./blocks/tooltip.css");

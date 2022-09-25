@@ -19,6 +19,7 @@ import Card from "./Card";
 import AddPlacePopup from "./AddPlacePopup";
 import DeleteCardPopup from "./DeleteCardPopup";
 import auth from "../utils/auth";
+import InfoTooltip from "./InfoTooltip";
 
 function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
@@ -41,7 +42,7 @@ function App() {
   });
   const [cards, setCards] = React.useState([]);
 
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(null);
   const [userData, setUserData] = React.useState(null);
   const [email, setEmail] = React.useState("");
   const [TooltipStatus, setTooltipStatus] = React.useState("");
@@ -77,13 +78,10 @@ function App() {
     }
   }, []);
 
-  // function handleLogin() {
-  //   setLoggedIn(true);
-  // }
-
-  function handleLogin({ email, password }) {
+  function onLogin({ email, password }) {
     auth.signin(email, password).then((res) => {
-      if (res.token) {
+      console.log(res);
+      if (res) {
         setLoggedIn(true);
         setEmail(email);
         localStorage.setItem("jwt", res.token);
@@ -95,15 +93,17 @@ function App() {
     });
   }
 
-  function handleRegister({ email, password }) {
+  function onRegister({ email, password }) {
     auth
       .signup(email, password)
       .then((res) => {
         if (res.data._id) {
+          console.log("register ok");
           setTooltipStatus("success");
           setIsInfoToolTipOpen(true);
           history.push("/signin");
         } else {
+          console.log("register not good");
           setTooltipStatus("fail");
           setIsInfoToolTipOpen(true);
         }
@@ -236,11 +236,11 @@ function App() {
         <Header email={email} onSignOut={onSignOut} />
         <Switch>
           <Route path="/signin">
-            <Login onLogin={handleLogin} />
+            <Login onLogin={onLogin} />
           </Route>
           <Route exact path="/signup">
             <Register
-              onRegister={handleRegister}
+              onRegister={onRegister}
 
               // tockenCheck={this.tockenCheck}
             />
@@ -253,9 +253,10 @@ function App() {
               onCardClick={handleCardClick}
               onCardLike={handleCardLike}
               onCardDelete={handleCardDelete}
+              cards={cards}
             />
           </ProtectedRoute>
-          {/* <Route path="*" element={<Redirect to="/" replace />} /> */}
+
           <Route>
             {loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
           </Route>
@@ -266,6 +267,7 @@ function App() {
           isOpen={isPreviewImageOpen}
           onClose={closeAllPopups}
         />
+        <InfoTooltip isOpen={IsInfoToolTipOpen} status={TooltipStatus} />
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
@@ -287,20 +289,6 @@ function App() {
           onClose={closeAllPopups}
           onAddPlaceSubmit={handleAddPlaceSubmit}
         />
-        {/* <section className="photos">
-          {cards.map((card) => (
-            <Card
-              {...card}
-              key={card._id}
-              onCardClick={handleCardClick}
-              // onTrashBinClick={handleTrashBinClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleCardDelete}
-              onTrashBinClick={handleTrashBinClick}
-            />
-          ))}
-          ;
-        </section> */}
         <Footer />
       </CurrentUserContext.Provider>
     </div>

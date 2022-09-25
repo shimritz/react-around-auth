@@ -2,7 +2,7 @@ import { useState, useHistory } from "react";
 import { Link } from "react-router-dom";
 import auth from "../utils/auth";
 
-const Register = ({ handleRegister }) => {
+const Register = ({ onRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -20,7 +20,7 @@ const Register = ({ handleRegister }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegister({ email, password });
+    onRegister({ email, password });
     // const { email, password } = inputs;
     // if (!email || !password) {
     //   return;
@@ -45,8 +45,8 @@ const Register = ({ handleRegister }) => {
         <input
           placeholder="Email"
           required
-          id="email"
-          name="email"
+          className="email"
+          name="signupEmail"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -55,7 +55,7 @@ const Register = ({ handleRegister }) => {
         <input
           placeholder="Password"
           required
-          id="password"
+          className="signupPassword"
           name="password"
           type="password"
           value={password}

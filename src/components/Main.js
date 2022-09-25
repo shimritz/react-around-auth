@@ -14,10 +14,6 @@ function Main({
   onCardDelete,
   cards,
   onCardLike,
-  handleCardClick,
-  handleCardLike,
-  handleCardDelete,
-  handleTrashBinClick,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -53,17 +49,18 @@ function Main({
         ></button>
       </section>
       <section className="photos">
-        {cards.map((card) => (
-          <Card
-            {...card}
-            key={card._id}
-            onCardClick={handleCardClick}
-            // onTrashBinClick={handleTrashBinClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-            onTrashBinClick={handleTrashBinClick}
-          />
-        ))}
+        {cards &&
+          cards.map((card) => (
+            <Card
+              {...card}
+              key={card._id}
+              onCardClick={onCardClick}
+              // onTrashBinClick={handleTrashBinClick}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete}
+              onTrashBinClick={onTrashBinClick}
+            />
+          ))}
         ;
       </section>
 

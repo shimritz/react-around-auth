@@ -20,40 +20,41 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onLogin({ email, password });
     // you'll need to add your login code here
-    if (!email || !password) {
-      return;
-    }
-    auth
-      .signin(email, password)
-      .then((data) => {
-        if (!data) {
-          return setMessage("Something went wrong");
-        }
-        if (data.jwt) {
-          setEmail("");
-          setPassword("");
-          this.setState(
-            {
-              email: "",
-              password: "",
-            },
-            () => {
-              onLogin();
-              localStorage.setItem("token", data.jwt);
-              history.push("/main");
-            }
-          );
-        }
-      })
-      .catch((err) => console.log(err));
+    //   if (!email || !password) {
+    //     return;
+    //   }
+    //   auth
+    //     .signin(email, password)
+    //     .then((data) => {
+    //       if (!data) {
+    //         return setMessage("Something went wrong");
+    //       }
+    //       if (data.jwt) {
+    //         setEmail("");
+    //         setPassword("");
+    //         this.setState(
+    //           {
+    //             email: "",
+    //             password: "",
+    //           },
+    //           () => {
+    //             onLogin();
+    //             localStorage.setItem("token", data.jwt);
+    //             history.push("/main");
+    //           }
+    //         );
+    //       }
+    //     })
+    //     .catch((err) => console.log(err));
   };
 
   return (
     <div className="login">
-      <p className="login__welcome">Welcome back!</p>
+      <p className="login__welcome">Log in</p>
       <form onSubmit={handleSubmit} className="login__form">
-        <label htmlFor="email">Email:</label>
+        {/* <label htmlFor="email">Email:</label> */}
         <input
           required
           id="email"
@@ -62,7 +63,7 @@ const Login = ({ onLogin }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Password:</label>
+        {/* <label htmlFor="password">Password:</label> */}
         <input
           required
           id="password"
@@ -78,7 +79,7 @@ const Login = ({ onLogin }) => {
         </div>
         <div className="login__signup">
           <p>Ready to begin your journey?</p>
-          <Link to="/register" className="signup__link">
+          <Link to="/signup" className="signup__link">
             Sign up
           </Link>
         </div>
