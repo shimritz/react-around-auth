@@ -23,9 +23,8 @@ function Main({
         <div onClick={onEditAvatarClick} className="profile__avatar-container">
           <img
             className="profile__avatar"
-            // src={profilePhoto}
             src={currentUser.avatar}
-            alt=""
+            alt="userAvatar"
           />
         </div>
         <div className="profile__info">

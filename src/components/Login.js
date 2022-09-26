@@ -1,53 +1,18 @@
 import { React, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../utils/auth";
-// import { signin, signup, checkToken } from "../utils/auth";
+
 import "../blocks/login.css";
 
 const Login = ({ onLogin }) => {
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [inputs, setInputs] = useState({});
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-
-  //     [name]: value
-
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onLogin({ email, password });
-    // you'll need to add your login code here
-    //   if (!email || !password) {
-    //     return;
-    //   }
-    //   auth
-    //     .signin(email, password)
-    //     .then((data) => {
-    //       if (!data) {
-    //         return setMessage("Something went wrong");
-    //       }
-    //       if (data.jwt) {
-    //         setEmail("");
-    //         setPassword("");
-    //         this.setState(
-    //           {
-    //             email: "",
-    //             password: "",
-    //           },
-    //           () => {
-    //             onLogin();
-    //             localStorage.setItem("token", data.jwt);
-    //             history.push("/main");
-    //           }
-    //         );
-    //       }
-    //     })
-    //     .catch((err) => console.log(err));
   };
 
   return (

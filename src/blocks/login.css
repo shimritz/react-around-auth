@@ -40,17 +40,19 @@
 .email {
   max-width: 358px;
   border: none;
-  border-bottom: 1px solid #1890ff;
+  border-bottom: 1px solid #cccccc;
   padding: 5px 10px;
   outline: none;
+  background-color: transparent;
 }
 
 .password {
   max-width: 358px;
   border: none;
-  border-bottom: 1px solid #1890ff;
+  border-bottom: 1px solid #cccccc;
   padding: 5px 10px;
   outline: none;
+  background-color: transparent;
 }
 
 .login__button-container {

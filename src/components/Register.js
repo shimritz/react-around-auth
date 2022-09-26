@@ -8,40 +8,15 @@ const Register = ({ onRegister }) => {
   const [message, setMessage] = useState("");
   const [inputs, setInputs] = useState({});
 
-  // const history = useHistory();
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setInputs((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onRegister({ email, password });
-    // const { email, password } = inputs;
-    // if (!email || !password) {
-    //   return;
-    // }
-
-    //   if (res) {
-
-    //     setMessage("");
-    //     onRegister();
-    //     history.push("/signin");
-    //   } else {
-
-    //     setMessage("Something went wrong, please try again.");
-    //   }
   };
   return (
     <div className="register">
       <h2 className="register__title">Sign up</h2>
       <p className="register__error">{inputs.message}</p>
       <form onSubmit={handleSubmit} className="register__form">
-        <label htmlFor="email">Email</label>
         <input
           placeholder="Email"
           required
@@ -51,7 +26,7 @@ const Register = ({ onRegister }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
-        <label htmlFor="password">Password</label>
+
         <input
           placeholder="Password"
           required

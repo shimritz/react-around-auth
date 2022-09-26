@@ -21,13 +21,13 @@ function Header({ email, onSignOut }) {
           </div>
         </Route>
         <Route path="/signup">
-          <Link to="signup" className="header__link-to-signup">
-            Sign up
+          <Link to="signin" className="header__link-to-signup">
+            Log in
           </Link>
         </Route>
         <Route path="/signin">
-          <Link to="signin" className="header__link-to-signin">
-            Log in
+          <Link to="signup" className="header__link-to-signin">
+            Sign up
           </Link>
         </Route>
       </div>

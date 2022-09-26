@@ -16,16 +16,12 @@ function Card({
     onCardClick({ name, link, likes });
   }
 
-  // const [isLiked2, setIsLiked] = React.useState();
-
   function handleLikeClick() {
-    // isLiked(true);
     onCardLike({ likes, _id });
   }
 
   function handleDeleteClick() {
     onCardDelete(_id);
-    // console.log("delete-evt", _id);
   }
   const currentUser = React.useContext(CurrentUserContext);
   // Checking if the current user is the owner of the current card
@@ -46,7 +42,7 @@ function Card({
       <img
         className="card__image"
         src={link}
-        alt="a picture of a valley"
+        alt={name}
         onClick={handleClick}
       />
       <button

@@ -3,6 +3,9 @@ class Auth {
     this.baseUrl = "https://register.nomoreparties.co";
   }
 
+  _checkResponse = (res) =>
+    res.ok ? res.json() : Promise.reject(res.statusText);
+
   signup(email, password) {
     return fetch(`${this.baseUrl}/signup`, {
       method: "POST",
@@ -11,37 +14,31 @@ class Auth {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
-    })
-      .then((response) => {
-        if (response.ok) return response.json();
-      })
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => console.log(err));
+    }).then(this._checkResponse);
   }
 
   signin(email, password) {
-    return fetch(`${this.baseUrl}/signin`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => {
-        console.log(response);
-        if (response.ok) {
-          return response.json();
-        }
+    return (
+      fetch(`${this.baseUrl}/signin`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
       })
-      .then((data) => {
-        localStorage.setItem("jwt", data.jwt);
-        localStorage.setItem("email", email);
-        return data;
-      })
-      .catch((err) => console.log(err));
+        .then(this._checkResponse)
+        //   console.log(response);
+        //   if (response.ok) {
+        //     return response.json();
+        //   }
+        // })
+        .then((data) => {
+          localStorage.setItem("jwt", data.token);
+          localStorage.setItem("email", email);
+          return data;
+        })
+    );
   }
 
   checkToken(token) {
@@ -53,11 +50,7 @@ class Auth {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
+      .then(this._checkResponse)
       .then((data) => {
         return data;
       });
