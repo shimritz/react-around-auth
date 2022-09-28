@@ -8,10 +8,11 @@ const InfoTooltip = ({ isOpen, onClose, status }) => {
       <div className="modal__container modal__container_type_tooltip">
         <button
           type="button"
-          className="modal__close-btn modal__close-btn_preview"
+          className="modal__close-btn"
           aria-label="close-button"
           onClick={onClose}
-        />
+        ></button>
+
         {status === "success" ? (
           <div>
             <img className="popup__icon" src={SuccessIcon} alt="" />

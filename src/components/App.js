@@ -155,6 +155,7 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsPreviewImageOpen(false);
+    setIsInfoToolTipOpen(false);
     setSelectedCard({ name: "", link: "" });
   }
 
@@ -280,7 +281,11 @@ function App() {
         isOpen={isPreviewImageOpen}
         onClose={closeAllPopups}
       />
-      <InfoTooltip isOpen={isInfoToolTipOpen} status={toolTipStatus} />
+      <InfoTooltip
+        isOpen={isInfoToolTipOpen}
+        status={toolTipStatus}
+        onClose={closeAllPopups}
+      />
       <EditProfilePopup
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
