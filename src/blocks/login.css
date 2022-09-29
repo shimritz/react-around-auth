@@ -88,3 +88,14 @@
   text-decoration: none;
   color: white;
 }
+
+@media screen and (max-width: 530px) {
+  .login__form {
+    max-width: 260px;
+  }
+
+  .login__button {
+    width: 260px;
+    height: 46px;
+  }
+}

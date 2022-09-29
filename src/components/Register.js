@@ -21,7 +21,7 @@ const Register = ({ onRegister }) => {
           placeholder="Email"
           required
           className="email"
-          name="signupEmail"
+          name="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -30,7 +30,7 @@ const Register = ({ onRegister }) => {
         <input
           placeholder="Password"
           required
-          className="signupPassword"
+          className="password"
           name="password"
           type="password"
           value={password}

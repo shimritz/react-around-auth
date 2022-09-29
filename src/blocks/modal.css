@@ -105,4 +105,9 @@
     top: -40px;
     right: 0;
   }
+
+  .modal_type_tooltip {
+    max-width: 280px;
+    height: 308px;
+  }
 }

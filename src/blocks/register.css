@@ -35,22 +35,24 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.signupEmail {
+.email {
   width: 100%;
   border: none;
   border-bottom: 1px solid #cccccc;
   padding: 5px 10px;
   outline: none;
   background-color: transparent;
+  color: #ffffff;
 }
 
-.signupPassword {
+.password {
   width: 100%;
   border: none;
   border-bottom: 1px solid #cccccc;
   padding: 5px 10px;
   outline: none;
   background-color: transparent;
+  color: #ffffff;
 }
 
 .register__button-container {
@@ -83,4 +85,15 @@
 .register__login-link {
   text-decoration: none;
   color: white;
+}
+
+@media screen and (max-width: 530px) {
+  .register__form {
+    max-width: 260px;
+  }
+
+  .register__button {
+    width: 260px;
+    height: 46px;
+  }
 }
