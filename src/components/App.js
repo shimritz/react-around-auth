@@ -88,13 +88,20 @@ function App() {
           setLoggedIn(true);
           setEmail(email);
           localStorage.setItem("jwt", res.token);
+          setToolTipStatus("success");
           history.push("/");
         } else {
           setToolTipStatus("fail");
           setIsInfoToolTipOpen(true);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setToolTipStatus("fail");
+      })
+      .finally(() => {
+        setIsInfoToolTipOpen(true);
+      });
   }
 
   function onRegister({ email, password }) {

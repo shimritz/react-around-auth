@@ -93,6 +93,11 @@
   cursor: pointer;
 }
 
+.modal__close-btn_type_tooltip {
+  top: -84px;
+  right: -60px;
+}
+
 @media screen and (max-width: 530px) {
   .modal__close-btn {
     width: 26px;
