@@ -15,7 +15,7 @@ const Register = ({ onRegister }) => {
   return (
     <div className="register">
       <h2 className="register__title">Sign up</h2>
-      <p className="register__error">{inputs.message}</p>
+      {/* {inputs.message && <p className="register__error">{inputs.message}</p>} */}
       <form onSubmit={handleSubmit} className="register__form">
         <input
           placeholder="Email"
@@ -25,7 +25,7 @@ const Register = ({ onRegister }) => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        ></input>
+        />
 
         <input
           placeholder="Password"
@@ -35,7 +35,7 @@ const Register = ({ onRegister }) => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        ></input>
+        />
         <div className="register__button-container">
           <button type="submit" className="register__button">
             Sign up
@@ -44,7 +44,7 @@ const Register = ({ onRegister }) => {
       </form>
       <div className="register__signin">
         <p>Already a member?</p>
-        <Link to="login" className="register__login-link">
+        <Link to="/login" className="register__login-link">
           Log in here
         </Link>
       </div>

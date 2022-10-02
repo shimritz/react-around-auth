@@ -94,6 +94,10 @@
     max-width: 260px;
   }
 
+  .login__button-container {
+    max-width: 100%;
+  }
+
   .login__button {
     width: 260px;
     height: 46px;

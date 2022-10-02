@@ -7,8 +7,6 @@ import "../blocks/login.css";
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [inputs, setInputs] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +15,7 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="login">
-      <p className="login__welcome">Log in</p>
+      <h2 className="login__welcome">Log in</h2>
       <form onSubmit={handleSubmit} className="login__form">
         <input
           placeholder="Email"
@@ -43,13 +41,13 @@ const Login = ({ onLogin }) => {
             Log in
           </button>
         </div>
-        <div className="login__signup">
-          <p>Not a member yet?</p>
-          <Link to="/signup" className="signup__link">
-            Sign up here!
-          </Link>
-        </div>
       </form>
+      <div className="login__signup">
+        <p>Not a member yet?</p>
+        <Link to="/signup" className="signup__link">
+          Sign up here!
+        </Link>
+      </div>
     </div>
   );
 };
