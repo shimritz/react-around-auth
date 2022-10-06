@@ -2,7 +2,7 @@
   "name": "react-around-auth",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shimritz.github.io",
+  "homepage": "https://shimritz.github.io/around-react-auth",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
