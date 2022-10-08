@@ -54,7 +54,6 @@ function Main({
               {...card}
               key={card._id}
               onCardClick={onCardClick}
-              // onTrashBinClick={handleTrashBinClick}
               onCardLike={onCardLike}
               onCardDelete={onCardDelete}
               onTrashBinClick={onTrashBinClick}
@@ -62,21 +61,6 @@ function Main({
           ))}
         ;
       </section>
-
-      {/* /* <section className="photos">
-        {cards.map((card) => {
-          return (
-            <Card
-              {...card}
-              key={card._id}
-              onCardClick={onCardClick}
-              onTrashBinClick={onTrashBinClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleCardDelete}
-            />
-          );
-        })}
-      </section> */}
     </main>
   );
 }

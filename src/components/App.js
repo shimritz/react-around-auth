@@ -266,7 +266,7 @@ function App() {
         <Route exact path="/signup">
           <Register onRegister={onRegister} />
         </Route>
-        <ProtectedRoute path="/" loggedIn={loggedIn}>
+        <ProtectedRoute exact path="/" loggedIn={loggedIn}>
           <Main
             onEditProfileClick={handleEditProfileClick}
             onAddPlaceClick={handleAddPlaceClick}
